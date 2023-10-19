@@ -4,10 +4,16 @@
     box-sizing: border-box;
     text-decoration: none;
     --colorPrimario: rgb(221, 47, 47);
+    
 }
 :root{
     --imgSize: background-repeat:no-repeat;
+    --heihghNavbar: 64px;
   
+}
+i{
+    width: 50px;
+    height: 50px;
 }
 body{
     background-color: grey;
@@ -19,10 +25,118 @@ body{
     height: auto;
     margin: 0 auto;
 }
+
+/* SECTION navbar ______________________________________________________________________________________SECTION navbar*/
+nav{
+    display: flex;
+    background-color: black;
+    padding: 0 3vw ;
+    position: fixed;
+    top:0;
+    z-index:200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height:var(--heihghNavbar) ;
+    gap: 0.8rem;
+
+}
+.navbar_links{
+    width: 70vw;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-right: 1vw;
+}
+nav ul{
+    
+    list-style: none;
+    display:flex;
+    
+}
+nav li {
+    font-weight: 700;
+    padding: 0 4px 0 4px;
+    
+    height: 25px;
+    margin: 0;
+    position: relative; /* Agrega esta propiedad */
+}
+.navbar_links ul a{
+    color: white;
+}
+
+nav li::after {
+    content: '';
+    height: 2px;
+    background-color: var(--colorPrimario);
+    width: 0;
+    position: absolute; 
+    bottom: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    transition: all 0.2s ease-in-out;
+}
+
+nav li:hover::after {
+    width: 50%;
+}
+nav .navbar_img{
+    display: flex;
+    align-content: center;
+}
+nav .carrito, nav .usuario {
+    display: flex;
+    align-content: center;
+}
+nav .navbar_img img{
+    width: 90px;
+    height: 60px;
+    
+    }
+nav .carrito img, nav .usuario img{
+    width: 50px;
+    height: 50px;
+    margin: 0;
+    border-radius: 50%;
+}
+.closeMenu{
+    display: none;
+}
+
+.navbar_links ul ul{
+    position: relative;
+    display: block;
+    flex-direction: column;    
+     margin-top:10px ;
+     background-color: black;
+     height: auto;
+     opacity: 0.9;
+     display: none;
+     
+}
+.navbar_links ul li:hover ul,
+.navbar_links ul ul.active {
+    display: flex;
+}
+
+
+.navbar_links ul ul li{
+    letter-spacing: 1px;
+    font-size: calc(11px + 0.3vw); 
+    font-weight: 100;   
+}
+.navbar_links ul ul li::after {
+    content: none; /* Elimina la línea roja en los elementos li de la sub-menu */
+}  
+
+
 /* SECTION clases_grupales ______________________________________________________________________________________SECTION clases_grupales*/
 #clases_grupales{
     
     height: auto ;
+    
 }
 .clases {
     margin: 20px auto;
@@ -49,7 +163,7 @@ body{
     border-radius: 5px;
     margin: 5px;
     color: white;
-    transition: 0.4s;
+    transition: 0.2s;
     display: flex;
     justify-content: center;
     align-items: end;
@@ -146,8 +260,7 @@ body{
 #experiencia_usuarios{
     
     display: grid;
-    grid-template-columns: repeat(2 , 1fr);
-    
+    grid-template-columns: repeat(3 , 1fr);
     gap: 40px;
 }
 
@@ -166,7 +279,7 @@ body{
     content: '';
     position: absolute;
     top: 20px;
-    right: 40px;
+    right: 25px;
     width: 80px;
     height: 80px;
     background: url(/imagenes/experiencia_usuarios/quote.png);
@@ -178,7 +291,7 @@ body{
         content: '';
         position: absolute;
         bottom: 20px;
-        left: 40px;
+        left: 25px;
         width: 80px;
         height: 80px;
         background: url(/imagenes/experiencia_usuarios/quote.png);
@@ -213,7 +326,6 @@ body{
 }
 #experiencia_usuarios .experiencia img:nth-child(1){
     object-position: right;
-    
 }
 #experiencia_usuarios .experiencia h3{
     letter-spacing: 3px;
@@ -242,7 +354,157 @@ body{
 }
 
 /* query */
-@media  (min-width: 200px) and (max-width: 768px) {
+
+
+@media  (min-width: 600px) and (max-width: 1023px) {
+    .clases .caja {
+        width: 40vw;
+        height: 150px;
+    }
+    .clases {
+        display: grid;
+        grid-template-columns: repeat(2,1fr) ;
+        
+    }
+    #experiencia_usuarios{
+        display: grid;
+        grid-template-columns: repeat(1 , 1fr);
+        gap: 30px;
+    }
+    
+    #experiencia_usuarios .experiencia img{
+        width: 105px;
+        height: 105px;
+    }
+}
+@media  (min-width: 290px) and (max-width: 599px) {
+    nav{
+        height:60px ;
+    }
+   
+
+    
+    nav .carrito, nav .usuario {
+        display: flex;
+        align-content: center;
+    }
+    nav .navbar_img img{
+        width: 75px;
+        height: 45px;
+        position: absolute;
+        left:3vw;
+        top:3px;
+        
+        }
+    nav .carrito img, nav .usuario img{
+        width: 45px;
+        height: 45px;
+        margin: 0;
+    }
+    /* Ocultar la lista de enlaces en dispositivos móviles */
+    
+
+    /* Estilos para el menú de hamburguesa */
+    nav .menuhamburguesa {
+        display: block;
+        color:white;
+        text-shadow:2px 2px 3px var(--colorPrimario);
+        height: 32px;
+        width: 32px;
+    
+    }
+    nav .menuhamburguesa i{
+        font-size: 2rem;           
+    }
+    .navbar_links ul{
+     position: absolute;
+     top: 0;
+     right: 0;   
+     
+     
+    }
+    .navbar_links ul{
+     flex-direction: column;
+     align-items: flex-end;
+     border: 1px solid white;
+     width: 60vw;
+     background-color: black;
+     height: 100vh;
+     padding: 5vh 2rem 0 0;
+     gap: 2rem;
+     opacity: 0.9;
+     visibility: hidden;
+    }
+    
+    .navbar_links ul ul{/* estilos para los submenus, no se utiliza la clase .submenu porque estoy aplicando ya una estilos obedeciando a  una regla especifica de navbar_links e por eso que la espedifidad anularia la aplicacion de la clase */
+     flex-direction: column;
+     align-items: flex-end;
+     width: 40vw;
+     margin-top:24px ;
+     background-color: black;
+     border: 1px solid transparent;
+     height: auto;
+     padding: 1vh 2rem 0 0;
+     gap: 0rem;
+     opacity: 1;
+     font-size: smaller;
+     z-index: 11; 
+     position: absolute;
+     display: none;
+    }
+    
+    .navbar_links ul ul.active {
+        display: block;
+    }
+    .navbar_links ul ul li{
+        letter-spacing: 1px;
+        font-size: calc(11px + 0.3vw); 
+        font-weight: 100;  
+    }
+     
+    .navbar_links ul ul li::after {
+        content: none; /* Elimina la línea roja en los elementos li de la sub-menu */
+    }  
+    
+   
+    ul.visible{               
+        visibility: visible; 
+    
+    }
+  
+
+    nav li{
+        letter-spacing: 2px;
+        font-size: calc(16px + 0.3vw);
+    }
+
+    nav li::after {
+        content: '';
+        height: 2px;
+        background-color: var(--colorPrimario);
+        width: 100%;
+        position: absolute; 
+        bottom: 3px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        transition: all 0.2s ease-in-out;
+    }
+    
+    /* estilos de la x */
+    .closeMenu {
+        display: block;
+        background-color: transparent; 
+        border: none; 
+        width: 20px;
+    }
+
+    .closeMenu i {
+        color: white; 
+        text-shadow: 2px 2px 4px red; 
+        font-size: 25px;
+        
+    }
+/* ___________________________________________________________________________________________________________________________ */
     .clases .caja {
         width: 40vw;
         height: 150px;
