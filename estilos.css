@@ -159,7 +159,7 @@ nav .carrito img, nav .usuario img{
 .clases .caja {
     border: 1px solid black;
     height: 200px;
-    width: min(320px, 100%) ;
+    width: 320px;
     border-radius: 5px;
     margin: 5px;
     color: white;
@@ -184,7 +184,7 @@ nav .carrito img, nav .usuario img{
 .caja .animacion_h1{
     height: 10%;
     width: 100%;
-    font-size: large;
+    font-size: clamp(9px, calc(9px + 0.5vw), 20px);
     font-weight: bold;
     background-color:var(--colorPrimario);
     display: flex;
@@ -250,7 +250,7 @@ nav .carrito img, nav .usuario img{
 /* SECTION experiencia_usuarios_____________________________________________________________________________SECTION experiencia_usuarios*/
 .titulo{
     /* font-size: clamp(45px, 5vw, 70px); */
-    font-size: clamp(45px, 5vw, 70px);
+    font-size: clamp(40px, 5vw, 70px);
     height: auto ;
     text-align:center;  
     margin: 30px 0 60px 0;
@@ -353,7 +353,7 @@ nav .carrito img, nav .usuario img{
     font-size:clamp(30px,3vw,70px) ;
 }
 
-/* query */
+/* query tablet */
 
 
 @media  (min-width: 600px) and (max-width: 1023px) {
@@ -368,22 +368,36 @@ nav .carrito img, nav .usuario img{
     }
     #experiencia_usuarios{
         display: grid;
-        grid-template-columns: repeat(1 , 1fr);
-        gap: 30px;
+        justify-content: center;
+        grid-template-columns: repeat(3 , 1fr);
+        gap: 10px;
     }
     
     #experiencia_usuarios .experiencia img{
-        width: 105px;
-        height: 105px;
+        width: 100px;
+        height: 100px;
+    }
+    #experiencia_usuarios .experiencia{
+        margin: 30px 0;
+        padding: 55px  0px 0px 0px;
+        padding-left:7%;
+        padding-right:7% ;
+        
+    }
+    #experiencia_usuarios .experiencia img{
+        top:-19%;
+        height: 100px;
+        width: 100px;
+       
     }
 }
-@media  (min-width: 290px) and (max-width: 599px) {
+
+
+/* query movil _______________________________________*/
+@media  (min-width: 270px) and (max-width: 599px) {
     nav{
         height:60px ;
     }
-   
-
-    
     nav .carrito, nav .usuario {
         display: flex;
         align-content: center;
@@ -472,12 +486,10 @@ nav .carrito img, nav .usuario img{
     
     }
   
-
     nav li{
         letter-spacing: 2px;
         font-size: calc(16px + 0.3vw);
     }
-
     nav li::after {
         content: '';
         height: 2px;
@@ -504,14 +516,18 @@ nav .carrito img, nav .usuario img{
         font-size: 25px;
         
     }
-/* ___________________________________________________________________________________________________________________________ */
+/* _____________________________________________________________________________________________________ */
     .clases .caja {
-        width: 40vw;
-        height: 150px;
+        width:93%;
+        height: 120px;
+        justify-content: center;
+        align-items: end;
+
     }
     .clases {
         display: grid;
         grid-template-columns: repeat(2,1fr) ;
+        place-items: center;
         
     }
     #experiencia_usuarios{
